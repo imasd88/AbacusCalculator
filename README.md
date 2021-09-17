@@ -1,6 +1,7 @@
 # AbacusCalculator
 
-# Part 1: Please use Java and Kotlin for this
+# Part 1: 
+Please use Java and Kotlin for this
 We want to have a simple online calculator library.
 /add Takes two or more parameters and returns the sum of all the numbers
 Example: 5, 2, 3, 5, 3 18
@@ -17,4 +18,5 @@ Example: 140, 45, 35, 20 40
 
 Note: Bonus points if you have error handling and unit tests
 
-# Part 2: Please implement an Android App to allow a user to enter the parameters and select an operation to call the library and display the results on the form. Extra points for a good looking UI with snappy animations, etc
+# Part 2: 
+Please implement an Android App to allow a user to enter the parameters and select an operation to call the library and display the results on the form. Extra points for a good looking UI with snappy animations, etc
