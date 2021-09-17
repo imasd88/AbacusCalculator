@@ -17,4 +17,4 @@ Example: 140, 45, 35, 20 40
 
 Note: Bonus points if you have error handling and unit tests
 
-#Part 2: Please implement an Android App to allow a user to enter the parameters and select an operation to call the library and display the results on the form. Extra points for a good looking UI with snappy animations, etc
+# Part 2: Please implement an Android App to allow a user to enter the parameters and select an operation to call the library and display the results on the form. Extra points for a good looking UI with snappy animations, etc
