@@ -2,6 +2,8 @@ package com.emazdoor.abacuscalculator.ui
 
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -21,11 +23,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         ViewModelProvider(this).get(MainActivityViewModel::class.java)
     }
 
-    private val inputAdapter = InputAdapter { number -> setInput(number) }
-
-//    var input: String = ""
+    private val inputAdapter = InputAdapter(this) { number -> setInput(number) }
 
     var operationType = OperationType.UNDEFINED
+
+    private lateinit var animation: Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             adapter = inputAdapter
             layoutManager = GridLayoutManager(context, 2)
         }
+
+        animation = AnimationUtils.loadAnimation(this@MainActivity, android.R.anim.slide_in_left)
     }
 
     override fun onResume() {
@@ -55,6 +59,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             remainder.setOnClickListener(this@MainActivity)
             split.setOnClickListener(this@MainActivity)
             equal.setOnClickListener(this@MainActivity)
+            buttonContainer.startAnimation(animation)
         }
     }
 
@@ -115,6 +120,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         operationType
                     )
                 )
+                viewModel.mutableLiveExpression.postValue("")
+
+                animation = AnimationUtils.loadAnimation(this@MainActivity, R.anim.scale_in)
+                binding.result.startAnimation(animation)
+
                 if (operationType == OperationType.SPLIT || operationType == OperationType.DIVISION)
                     Toast.makeText(
                         this,
