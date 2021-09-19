@@ -1,6 +1,5 @@
 package com.emazdoor.abacuscalculator.ui
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.emazdoor.abacuscalculator.repository.CalculationRepository
@@ -14,8 +13,8 @@ class MainActivityViewModel : ViewModel() {
     val mutableLiveResult = MutableLiveData<String>()
 
     init {
-        mutableLiveExpression.value = ""
-        mutableLiveResult.value = "Results"
+        mutableLiveExpression.postValue("")
+        mutableLiveResult.postValue("Results")
     }
 
     fun calculate(input: String, operationType: OperationType): String {
@@ -54,7 +53,6 @@ class MainActivityViewModel : ViewModel() {
                 }
             }
         } catch (e: Exception) {
-            Log.e("ASD", "$e")
             return "Single operation per calculation supported"
         }
     }
