@@ -39,6 +39,7 @@
             android:layout_marginTop="40dp"
             android:hint="@string/enter_values_with_following_numpad"
             android:importantForAutofill="no"
+            android:cursorVisible="false"
             android:text="@={viewModel.mutableLiveExpression}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/result" />

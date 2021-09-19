@@ -59,6 +59,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             remainder.setOnClickListener(this@MainActivity)
             split.setOnClickListener(this@MainActivity)
             equal.setOnClickListener(this@MainActivity)
+
+            //prevent input from keyboard
+            input.showSoftInputOnFocus = false;
+
+            //animation
             buttonContainer.startAnimation(animation)
         }
     }
