@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.emazdoor.abacuscalculator.ui.MainActivityViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,13 +20,15 @@
             style="@style/TextAppearance.MaterialComponents.Headline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
-            android:text="@string/result"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:text="@{viewModel.mutableLiveResult}"
             android:textColor="@color/sky_blue"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/result" />
 
 
         <EditText
@@ -27,8 +36,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
-            android:hint="@string/enter_values_with_delimiter"
+            android:layout_marginTop="40dp"
+            android:hint="@string/enter_values_with_following_numpad"
             android:importantForAutofill="no"
+            android:text="@={viewModel.mutableLiveExpression}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/result" />
 
@@ -47,8 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="40dp"
-                android:layout_weight="1"
-                android:background="@color/sky_blue" />
+                android:layout_weight="1" />
 
             <LinearLayout
                 android:layout_width="200dp"
@@ -57,6 +67,13 @@
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:insetTop="0dp"
+                    android:text="@string/clear" />
 
                 <Button
                     android:id="@+id/add"

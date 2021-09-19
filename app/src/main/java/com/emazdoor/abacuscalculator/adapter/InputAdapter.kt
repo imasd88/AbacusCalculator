@@ -7,7 +7,8 @@ import com.emazdoor.abacuscalculator.BR
 import com.emazdoor.abacuscalculator.databinding.ItemNumbersBinding
 import com.emazdoor.abacuscalculator.model.CalcModel
 
-class InputAdapter : RecyclerView.Adapter<InputAdapter.ViewHolder>() {
+class InputAdapter(val block: (number: Int) -> Unit) :
+    RecyclerView.Adapter<InputAdapter.ViewHolder>() {
 
     var list: List<CalcModel> = emptyList()
         set(value) {
@@ -40,7 +41,9 @@ class InputAdapter : RecyclerView.Adapter<InputAdapter.ViewHolder>() {
         holder.apply {
             val item = list[position]
             bind(item)
-//            itemView.setOnClickListener { block(item.id, item.type) }
+            itemView.setOnClickListener {
+                block(item.numbers)
+            }
         }
     }
 

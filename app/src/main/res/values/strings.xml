@@ -2,13 +2,14 @@
     <string name="app_name">AbacusCalculator</string>
     <string name="result">Result</string>
     <string name="add">+</string>
-    <string name="enter_values_with_delimiter">Enter values with "," delimiter</string>
+    <string name="enter_values_with_following_numpad">Enter values with following numpad</string>
     <string name="delimiter">,</string>
     <string name="number">number</string>
     <string name="subtract">-</string>
     <string name="divide">/</string>
     <string name="multiply">*</string>
-    <string name="remainder">R</string>
-    <string name="split">S</string>
+    <string name="remainder">Rem</string>
+    <string name="split">SE</string>
     <string name="equal">=</string>
+    <string name="clear">C</string>
 </resources>
