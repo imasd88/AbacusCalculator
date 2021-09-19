@@ -1,4 +1,6 @@
-package com.emazdoor.abacuscalculator.repository
+package com.emazdoor.abacuscalculator.repository.library
+
+import com.emazdoor.abacuscalculator.repository.library.interfaces.Operations
 
 class Addition : Operations<Int> {
     override fun executeOperation(value1: Int, vararg value2: Int): Int {
@@ -7,5 +9,4 @@ class Addition : Operations<Int> {
             result += element
         return result
     }
-
 }
